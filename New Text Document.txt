@@ -1,0 +1,10 @@
+<?php
+require("config.php");
+
+$sql = "SELECT * FROM empleado";
+$resultado = $conexion->query($sql);
+
+while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
+    echo "ID: " . $fila['id'] . ", Nombre: " . $fila['nombre'] . ", Edad: " . $fila['edad'] . "<br>";
+}
+?>

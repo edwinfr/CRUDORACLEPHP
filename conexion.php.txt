@@ -1,0 +1,15 @@
+<?php
+$usuario = 'sys';
+$contrasena = 'root';
+$conexionString = 'oci:dbname=sys@//localhost:1521/xe;charset=UTF8';
+
+try {
+    $conexion = new PDO($conexionString, $usuario, $contrasena);
+    // Configurar el modo de manejo de errores a excepciones
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    echo 'Conexión exitosa a Oracle';
+} catch (PDOException $e) {
+    echo 'Error de conexión: ' . $e->getMessage();
+}
+?>
